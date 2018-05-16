@@ -61,24 +61,6 @@ for(let i = 0; i < liList.length; i++){
     });
 }
 
-//Handles the hover event making the boxes
-//have a hover image of x or o
-// $($boxesUl).hover(function(event){
-//     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
-//         $(event.target).css('background-color', '#EFEFEF');
-//         $(event.target).addClass('box-filled-1');
-//     }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
-//         $(event.target).css('background-color', '#EFEFEF');
-//         $(event.target).addClass('box-filled-2');
-//     }
-// }, function(event){
-//     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
-//         $(event.target).removeClass('box-filled-1');
-//     }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
-//         $(event.target).removeClass('box-filled-2');
-//     }
-// });
-
 let winner = 0;
 
 //This function checks for a winner 
