@@ -34,25 +34,32 @@ $($boxes).each(function(index){
     $($boxes[index]).append($imgTags);
 });
 
-//Handles mouseenter event
-$($boxesUl).on('mouseenter', function(event){
-    if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
-        $(event.target).css('background-color', '#EFEFEF');
-        $(event.target).addClass('box-filled-1');
-    }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
-        $(event.target).css('background-color', '#EFEFEF');
-        $(event.target).addClass('box-filled-2');
-    }
-});
+//Select the li elements in boxes
+var liList = document.querySelectorAll('li.box');
 
-//Handles mouseleave event
-$($boxesUl).on('mouseleave', function(event){
-    if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
-        $(event.target).removeClass('box-filled-1');
-    }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
-        $(event.target).removeClass('box-filled-2');
-    }
-});
+//This handles mouseover event
+for(let i = 0; i < liList.length; i++){
+    liList[i].addEventListener('mouseover', function(){
+        if(turn == 0 && chosenBoxes[i] == 0){
+            liList[i].style.backgroundColor = '#EFEFEF';
+            liList[i].classList.toggle('box-filled-1');
+        }else if(turn == 1 && chosenBoxes[i] == 0){
+            liList[i].style.backgroundColor = '#EFEFEF';
+            liList[i].classList.toggle('box-filled-2');
+        }
+    });
+}
+
+//This handles mouseout event
+for(let i = 0; i < liList.length; i++){
+    liList[i].addEventListener('mouseout', function(){
+        if(turn == 0 && chosenBoxes[i] == 0){
+            liList[i].classList.toggle('box-filled-1');
+        }else if(turn == 1 && chosenBoxes[i] == 0){
+            liList[i].classList.toggle('box-filled-2');
+        }
+    });
+}
 
 //Handles the hover event making the boxes
 //have a hover image of x or o
