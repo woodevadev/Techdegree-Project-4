@@ -34,9 +34,8 @@ $($boxes).each(function(index){
     $($boxes[index]).append($imgTags);
 });
 
-//Handles the hover event making the boxes
-//have a hover image of x or o
-$($boxesUl).hover(function(event){
+//Handles mouseenter event
+$($boxesUl).on('mouseenter', function(event){
     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
         $(event.target).css('background-color', '#EFEFEF');
         $(event.target).addClass('box-filled-1');
@@ -44,13 +43,34 @@ $($boxesUl).hover(function(event){
         $(event.target).css('background-color', '#EFEFEF');
         $(event.target).addClass('box-filled-2');
     }
-}, function(event){
+});
+
+//Handles mouseleave event
+$($boxesUl).on('mouseleave', function(event){
     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
         $(event.target).removeClass('box-filled-1');
     }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
         $(event.target).removeClass('box-filled-2');
     }
 });
+
+//Handles the hover event making the boxes
+//have a hover image of x or o
+// $($boxesUl).hover(function(event){
+//     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
+//         $(event.target).css('background-color', '#EFEFEF');
+//         $(event.target).addClass('box-filled-1');
+//     }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
+//         $(event.target).css('background-color', '#EFEFEF');
+//         $(event.target).addClass('box-filled-2');
+//     }
+// }, function(event){
+//     if(turn == 0 && chosenBoxes[$(event.target).index()] == 0){
+//         $(event.target).removeClass('box-filled-1');
+//     }else if(turn == 1 && chosenBoxes[$(event.target).index()] == 0){
+//         $(event.target).removeClass('box-filled-2');
+//     }
+// });
 
 let winner = 0;
 
